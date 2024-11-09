@@ -15,7 +15,7 @@ Contexto2023_2 = cargar_texto('Contextos/Datos2023-2.txt')
 # --- Enunciados --- 
 
 Ejercicio1_2023_1 = cargar_texto('Ejercicios/Ejercicio 1 2023-1.txt')
-Ejercicio2_2023_1 = cargar_texto('Ejercicios/Ejercicio 1 2023-1.txt')
+Ejercicio2_2023_1 = cargar_texto('Ejercicios/Ejercicio 2 2023-1.txt')
 Ejercicio3_2023_1 = cargar_texto('Ejercicios/Ejercicio 3 2023-1.txt')
 
 Ejercicio1_2023_2 = cargar_texto('Ejercicios/Ejercicio 1 2023-2.txt')
@@ -84,25 +84,24 @@ RespuestaPropuesta_ejercicio_2_2023_2 = cargar_texto('Respuestas/Sugerir respues
 PrompCorrectaIncorrecta = cargar_texto('Promp/RespuestaCorrectaIncorrecta.txt')
 PrompIdentificarErroresLogicos = cargar_texto('Promp/IdentificaErroresLogicos.txt')
 
-def enviar_prompt(contexto, enunciado, respuesta, modelo, prompt_template, version):
+def enviar_prompt(contexto, enunciado, respuesta, nombre_respuesta, modelo, prompt_template, version):
     prompt = prompt_template.format(
         contexto=contexto,
         enunciado=enunciado,
         respuesta=respuesta,
     )
 
-    # Generar nombre de archivo automáticamente usando los parámetros directamente
-    nombre_archivo = f"Respuesta_{contexto.split('/')[-1].replace('.txt', '')}_{enunciado.split('/')[-1].replace('.txt', '')}_{modelo}_{version}.txt"
+    # Generar nombre de archivo automáticamente usando los nombres de las variables
+    nombre_archivo = f"Respuesta_{nombre_respuesta}_{modelo}_{version}.txt"
     
-    # Crear las carpetas para el modelo y contexto si no existen
-    carpeta_modelo = f"Respuestas/{modelo}"
-    carpeta_contexto = f"{carpeta_modelo}/{contexto.split('/')[-1].replace('.txt', '')}"
+    # Crear las carpetas para el modelo y versión si no existen
+    carpeta_modelo = f"Modelo respuestas/{modelo}/{version}"
 
     # Crear las carpetas necesarias
-    os.makedirs(carpeta_contexto, exist_ok=True)
+    os.makedirs(carpeta_modelo, exist_ok=True)
 
     # Ruta completa del archivo
-    ruta_archivo = os.path.join(carpeta_contexto, nombre_archivo)
+    ruta_archivo = os.path.join(carpeta_modelo, nombre_archivo)
 
     # Configuración de la solicitud
     url = "http://localhost:11434/api/generate"
@@ -134,29 +133,29 @@ def enviar_prompt(contexto, enunciado, respuesta, modelo, prompt_template, versi
 
 # Ejecuciones ---------------------------------------------------------
 
-version = "v1"
+version = "Correctasv2"
 
 # Base de datos 1 Correcto
 
-enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, RespuestaCorrecta_ejercicio_1_2023_1, "llama3.2", PrompCorrectaIncorrecta, version)
-enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, RespuestaCorrecta_ejercicio_2_2023_1, "llama3.2", PrompCorrectaIncorrecta, version)
-enviar_prompt(Contexto2023_1, Ejercicio3_2023_1, RespuestaCorrecta_ejercicio_3_2023_1, "llama3.2", PrompCorrectaIncorrecta, version)
+enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, RespuestaCorrecta_ejercicio_1_2023_1,"2023_1_E1_CI_correcta", "llama3.2", PrompCorrectaIncorrecta, version)
+enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, RespuestaCorrecta_ejercicio_2_2023_1,"2023_1_E2_CI_correcta", "llama3.2", PrompCorrectaIncorrecta, version)
+enviar_prompt(Contexto2023_1, Ejercicio3_2023_1, RespuestaCorrecta_ejercicio_3_2023_1,"2023_1_E3_CI_correcta", "llama3.2", PrompCorrectaIncorrecta, version)
 
-# Base de datos 2 Correcto
+# # Base de datos 2 Correcto
 
-enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, RespuestaCorrecta_ejercicio_1_2023_2, "llama3.2", PrompCorrectaIncorrecta, version)
-enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, RespuestaCorrecta_ejercicio_2_2023_2, "llama3.2", PrompCorrectaIncorrecta, version)
+# enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, RespuestaCorrecta_ejercicio_1_2023_2, "llama3.2", PrompCorrectaIncorrecta, version)
+# enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, RespuestaCorrecta_ejercicio_2_2023_2, "llama3.2", PrompCorrectaIncorrecta, version)
 
-# ----------------------------------------------------------------
+# # ----------------------------------------------------------------
 
-# Base de datos 1 incorrecto
-enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, RespuestaIncorrecta_ejercicio_1_2023_1, "llama3.2", PrompCorrectaIncorrecta, version)
-enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, RespuestaIncorrecta_ejercicio_2_2023_1, "llama3.2", PrompCorrectaIncorrecta, version)
-enviar_prompt(Contexto2023_1, Ejercicio3_2023_1, RespuestaIncorrecta_ejercicio_3_2023_1, "llama3.2", PrompCorrectaIncorrecta, version)
+# # Base de datos 1 incorrecto
+# enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, RespuestaIncorrecta_ejercicio_1_2023_1, "llama3.2", PrompCorrectaIncorrecta, version)
+# enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, RespuestaIncorrecta_ejercicio_2_2023_1, "llama3.2", PrompCorrectaIncorrecta, version)
+# enviar_prompt(Contexto2023_1, Ejercicio3_2023_1, RespuestaIncorrecta_ejercicio_3_2023_1, "llama3.2", PrompCorrectaIncorrecta, version)
 
-# Base de datos 2 incorrecto
-enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, RespuestaIncorrecta_ejercicio_1_2023_2, "llama3.2", PrompCorrectaIncorrecta, version)
-enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, RespuestaIncorrecta_ejercicio_2_2023_2, "llama3.2", PrompCorrectaIncorrecta, version)
+# # Base de datos 2 incorrecto
+# enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, RespuestaIncorrecta_ejercicio_1_2023_2, "llama3.2", PrompCorrectaIncorrecta, version)
+# enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, RespuestaIncorrecta_ejercicio_2_2023_2, "llama3.2", PrompCorrectaIncorrecta, version)
 
 # -------------------------------------------------------------------
 
