@@ -1,5 +1,6 @@
 import requests
 import json
+import os
 
 # Función para cargar texto desde archivos
 def cargar_texto(archivo):
@@ -83,13 +84,25 @@ RespuestaPropuesta_ejercicio_2_2023_2 = cargar_texto('Respuestas/Sugerir respues
 PrompCorrectaIncorrecta = cargar_texto('Promp/RespuestaCorrectaIncorrecta.txt')
 PrompIdentificarErroresLogicos = cargar_texto('Promp/IdentificaErroresLogicos.txt')
 
-
-def enviar_prompt(contexto, enunciado, respuesta, modelo, nombre_archivo, prompt_template):
+def enviar_prompt(contexto, enunciado, respuesta, modelo, prompt_template, version):
     prompt = prompt_template.format(
         contexto=contexto,
         enunciado=enunciado,
         respuesta=respuesta,
     )
+
+    # Generar nombre de archivo automáticamente usando los parámetros directamente
+    nombre_archivo = f"Respuesta_{contexto.split('/')[-1].replace('.txt', '')}_{enunciado.split('/')[-1].replace('.txt', '')}_{modelo}_{version}.txt"
+    
+    # Crear las carpetas para el modelo y contexto si no existen
+    carpeta_modelo = f"Respuestas/{modelo}"
+    carpeta_contexto = f"{carpeta_modelo}/{contexto.split('/')[-1].replace('.txt', '')}"
+
+    # Crear las carpetas necesarias
+    os.makedirs(carpeta_contexto, exist_ok=True)
+
+    # Ruta completa del archivo
+    ruta_archivo = os.path.join(carpeta_contexto, nombre_archivo)
 
     # Configuración de la solicitud
     url = "http://localhost:11434/api/generate"
@@ -109,22 +122,53 @@ def enviar_prompt(contexto, enunciado, respuesta, modelo, nombre_archivo, prompt
     # Guardar en txt
     if response.status_code == 200:
         respuesta_llm = response.json().get('response', 'No se recibió una respuesta válida')
-        with open(nombre_archivo, 'w') as file:
+        with open(ruta_archivo, 'w') as file:
             file.write(f"""
 ---------- Respuesta LLM: {modelo}------------------
 {respuesta_llm}
 """)
-        print(f"Respuesta LLM guardada en '{nombre_archivo}'")
+        print(f"Respuesta LLM guardada en '{ruta_archivo}'")
     else:
         print(f"Error en la solicitud: {response.status_code}")
         print(response.text)
 
 # Ejecuciones ---------------------------------------------------------
 
-# ejercicio 1 Correcto|Incorrecto
-enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, RespuestaCorrecta_ejercicio_1_2023_1, "llama3.2", "LLama3.2_Caso_Correcto_ejercicio1.txt", PrompCorrectaIncorrecta)
-enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, RespuestaIncorrecta_ejercicio_1_2023_1, "llama3.2", "LLama3.2_Caso_incorrecto_ejercicio1.txt", PrompCorrectaIncorrecta)
+version = "v1"
 
-# ejercicio 2 Correcto|Incorrecto
-enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, RespuestaCorrecta_ejercicio_2_2023_1, "llama3.2", "LLama3.2_Caso_incorrecto_ejercicio1.txt", PrompCorrectaIncorrecta)
-enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, RespuestaIncorrecta_ejercicio_2_2023_1, "llama3.2", "LLama3.2_Caso_incorrecto_ejercicio1.txt", PrompCorrectaIncorrecta)
+# Base de datos 1 Correcto
+
+enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, RespuestaCorrecta_ejercicio_1_2023_1, "llama3.2", PrompCorrectaIncorrecta, version)
+enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, RespuestaCorrecta_ejercicio_2_2023_1, "llama3.2", PrompCorrectaIncorrecta, version)
+enviar_prompt(Contexto2023_1, Ejercicio3_2023_1, RespuestaCorrecta_ejercicio_3_2023_1, "llama3.2", PrompCorrectaIncorrecta, version)
+
+# Base de datos 2 Correcto
+
+enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, RespuestaCorrecta_ejercicio_1_2023_2, "llama3.2", PrompCorrectaIncorrecta, version)
+enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, RespuestaCorrecta_ejercicio_2_2023_2, "llama3.2", PrompCorrectaIncorrecta, version)
+
+# ----------------------------------------------------------------
+
+# Base de datos 1 incorrecto
+enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, RespuestaIncorrecta_ejercicio_1_2023_1, "llama3.2", PrompCorrectaIncorrecta, version)
+enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, RespuestaIncorrecta_ejercicio_2_2023_1, "llama3.2", PrompCorrectaIncorrecta, version)
+enviar_prompt(Contexto2023_1, Ejercicio3_2023_1, RespuestaIncorrecta_ejercicio_3_2023_1, "llama3.2", PrompCorrectaIncorrecta, version)
+
+# Base de datos 2 incorrecto
+enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, RespuestaIncorrecta_ejercicio_1_2023_2, "llama3.2", PrompCorrectaIncorrecta, version)
+enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, RespuestaIncorrecta_ejercicio_2_2023_2, "llama3.2", PrompCorrectaIncorrecta, version)
+
+# -------------------------------------------------------------------
+
+# Base de datos 1 Errores Sintaxis
+
+
+# Base de datos 2 Errores Sintaxis
+
+
+# Base de datos 1 Proponer solucion con respuesta de estudiante
+
+
+# Base de datos 2 Proponer solucion con respuesta de estudiante
+
+
