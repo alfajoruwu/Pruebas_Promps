@@ -1,0 +1,8 @@
+- Respuesta estudiante -
+
+SELECT viaje.origen 
+FROM cliente
+JOIN ticket ON ticket.refcliente = cliente.id
+JOIN viaje ON ticket.refviaje = viaje.id
+
+- Tabla resultante de estudiante -

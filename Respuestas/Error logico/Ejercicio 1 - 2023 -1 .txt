@@ -1,0 +1,41 @@
+- Respuesta estudiante -
+
+SELECT viaje.origen 
+FROM cliente
+JOIN ticket ON ticket.refcliente = cliente.id
+JOIN viaje ON ticket.refviaje = viaje.id
+
+- Tabla resultante de estudiante -
+
+| origen   |
+| -------- |
+| Curicó   |
+| Curicó   |
+| Talca    |
+| Talca    |
+| Curicó   |
+| Curicó   |
+| Santiago |
+| Santiago |
+| Curicó   |
+| Curicó   |
+| Talca    |
+| Talca    |
+| Curicó   |
+| Curicó   |
+| Santiago |
+| Santiago |
+| Curicó   |
+| Curicó   |
+| Curicó   |
+| Curicó   |  
+| Linares  |
+| Linares  |
+| Linares  |
+| Linares  |
+| Curicó   |
+| Curicó   |
+| Curicó   |
+| Curicó   |
+| Curicó   |
+| Curicó   |
