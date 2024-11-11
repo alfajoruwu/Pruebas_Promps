@@ -1,0 +1,25 @@
+
+---------- Respuesta LLM: llama3.2------------------
+**Error 1:** Palabra clave `SELEC` mal escrita.
+
+  - Explicación: El estudiante escribió `SELEC` en lugar de `SELECT`. Esto causa un error de sintaxis en SQL.
+  - Sugerencia: Reemplaza `SELEC` por `SELECT`.
+
+**Error 2:** Inclusión incorrecta del operador igual (`==`) para comparar strings.
+
+  - Explicación: En el estudiante se utiliza `==`, que es equivalente a `=` y no es el operador adecuado para comparar cadenas de texto en SQL. Debe utilizarse el operador `=`.
+  - Sugerencia: Reemplaza `==` por `=`.
+
+**Corrección completa:**
+
+La respuesta correcta del estudiante sería:
+
+```sql
+SELECT DISTINCT viaje.destino
+FROM cliente 
+JOIN ticket ON ticket.refcliente = cliente.id 
+JOIN viaje ON ticket.refviaje = viaje.id
+WHERE cliente.nombre = "Juan";
+```
+
+Esta consulta SQL debe devolver la tabla con los nombres de las ciudades que han sido el destino de los viajes del cliente “Juan” sin repetir los nombres de ciudad.

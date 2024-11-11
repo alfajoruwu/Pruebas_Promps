@@ -1,0 +1,14 @@
+
+---------- Respuesta LLM: llama3.2------------------
+La respuesta del estudiante es incorrecta.
+
+Explicación:
+
+La consulta SQL del estudiante no se ajusta a la respuesta esperada. La respuesta esperada debe contener los académicos con su nombre y el número de estudiantes de los cuales ha sido tutor, mientras que la consulta del estudiante devuelve todos los académicos con su nombre y el número total de estudiantes de todos los cuales ha sido tutor, sin importar si es tutor o no. Además, se repite cada academia una vez más, lo cual no está permitido.
+
+La respuesta correcta debería ser:
+
+SELECT academico.nombre, count(distinct tesis.ref_estudiante) as nro_estudiantes
+FROM academico, tesis
+WHERE tesis.ref_tutor = academico.id
+GROUP BY academico.id

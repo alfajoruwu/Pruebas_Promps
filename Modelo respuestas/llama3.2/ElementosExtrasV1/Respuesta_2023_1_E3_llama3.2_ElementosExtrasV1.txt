@@ -1,0 +1,27 @@
+
+---------- Respuesta LLM: llama3.2------------------
+La respuesta del estudiante no cumple con el requisito de devolver la tabla correcta, ya que se ordena por `cliente.nombre` y limita a 100.000 registros, lo cual no está claro si es requerido en el problema.
+
+Para resolver este ejercicio, la consulta SQL esperada sería la siguiente:
+
+```sql
+SELECT t3.nombre
+FROM (
+    SELECT max_tickets
+    FROM (
+        SELECT cliente.id, count(ticket.id) as nro_tickets 
+        FROM cliente, ticket
+        WHERE ticket.refcliente = cliente.id 
+        GROUP BY cliente.id
+    ) AS t1
+) AS t2,
+(
+    SELECT cliente.id, cliente.nombre, count(ticket.id) as nro_tickets 
+    FROM cliente, ticket
+    WHERE ticket.refcliente = cliente.id
+    GROUP BY cliente.id, cliente.nombre
+) AS t3
+WHERE t3.nro_tickets = t2.max_tickets;
+```
+
+Esto devolverá la tabla correcta con los nombres de los clientes que han comprado la mayor cantidad de tickets.

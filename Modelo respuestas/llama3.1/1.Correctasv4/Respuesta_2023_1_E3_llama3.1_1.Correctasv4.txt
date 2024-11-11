@@ -1,0 +1,5 @@
+
+---------- Respuesta LLM: llama3.1------------------
+La respuesta del estudiante es correcta. 
+
+La consulta del estudiante regresa la misma tabla que la respuesta esperada, con los nombres de los clientes que han comprado la mayor cantidad de tickets.

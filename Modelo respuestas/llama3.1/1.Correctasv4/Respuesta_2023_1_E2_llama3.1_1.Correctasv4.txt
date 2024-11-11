@@ -1,0 +1,7 @@
+
+---------- Respuesta LLM: llama3.1------------------
+La respuesta del estudiante es correcta. 
+
+La consulta SQL proporcionada por el estudiante correctamente relaciona las tablas `cliente`, `ticket` y `viaje` mediante JOINs INNER, lo que permite calcular la cuenta de destinos distintos para cada cliente. La agrupación se realiza por el ID del cliente y su nombre, obteniendo los resultados esperados.
+
+La tabla resultante del estudiante coincide con la tabla esperada proporcionada.

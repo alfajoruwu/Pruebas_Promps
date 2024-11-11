@@ -1,0 +1,27 @@
+
+---------- Respuesta LLM: llama3.2------------------
+**Error 1:** Uso incorrecto de `JOIN`, causando un resultado duplicado.
+  - Explicación: El estudiante usó un `JOIN` sin especificar la condición de unión, lo que generó filas duplicadas. Debería usar una condición más específica en el `JOIN`.
+  - Sugerencia: Considera usar un `INNER JOIN` en lugar de un `LEFT JOIN` para evitar resultados adicionales no deseados.
+
+**Error 2:** Filtro en columna irrelevante.
+  - Explicación: El estudiante aplicó un filtro en la columna `nombre` del cliente, lo que puede indicar una confusión con los datos. Debería considerar solo el cliente "Juan" y no cualquier otro.
+  - Sugerencia: Revisa el filtro aplicado y asegúrate de que esté relacionado con los requisitos del enunciado.
+
+**Error 3:** Filtro en columna irrelevante en la tabla resultante.
+  - Explicación: El estudiante también aplicó un filtro en la columna `nombre` en la tabla resultante, lo que puede indicar una confusión con los datos. Debería considerar solo el nombre del cliente "Juan" y no cualquier otro.
+  - Sugerencia: Revisa el filtro aplicado y asegúrate de que esté relacionado con los requisitos del enunciado.
+
+**Sugestión correcta:**
+La consulta SQL correcta debería ser la siguiente:
+
+```sql
+select distinct viaje.destino 
+from cliente, viaje, ticket
+where 
+ticket.refviaje = viaje.id and
+ticket.refcliente = cliente.id and
+cliente.nombre = 'Juan'
+```
+
+Esta consulta utiliza un `JOIN` interno para unir las tablas `cliente`, `viaje` y `ticket` según la condición de unión especificada. Además, aplica un filtro en la columna `nombre` del cliente para asegurarse de que solo se considere al cliente "Juan". La función `distinct` garantiza que no se repitan los nombres de ciudad en la tabla resultante.

@@ -1,0 +1,23 @@
+
+---------- Respuesta LLM: llama3.1------------------
+La respuesta del estudiante es incorrecta.
+
+El resultado esperado era una tabla con los nombres de las ciudades que han sido el destino de los viajes del cliente “Juan”, sin repetir los nombres de ciudad. Sin embargo, la respuesta del estudiante incluye duplicados y no todas las ciudades están presentes en el resultado.
+
+La respuesta correcta es:
+
+select distinct viaje.destino 
+from cliente, viaje, ticket
+where 
+ticket.refviaje = viaje.id and
+ticket.refcliente = cliente.id and
+cliente.nombre = 'Juan'
+
+El resultado esperado es:
+| destino |
+| ------- |
+| Curicó  |
+| Linares |
+| Talca   |
+
+La respuesta del estudiante falla al no utilizar el operador `DISTINCT` para eliminar los duplicados y también incluye ciudades que no son destino de viajes realizados por el cliente “Juan”.

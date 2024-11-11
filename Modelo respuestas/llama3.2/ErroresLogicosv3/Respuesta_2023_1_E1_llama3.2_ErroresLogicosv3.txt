@@ -1,0 +1,27 @@
+
+---------- Respuesta LLM: llama3.2------------------
+**Error 1:** Uso incorrecto de `JOIN`, causando un resultado duplicado.
+
+  - Explicación: El estudiante usó un `JOIN` sin considerar la relación entre las tablas, lo que generó filas duplicadas. Debería usar una condición más específica en el `JOIN`.
+  - Sugerencia: Considera usar un `INNER JOIN` en lugar de un `LEFT JOIN` para evitar resultados adicionales no deseados.
+
+**Error 2:** Filtro en columna irrelevante.
+
+  - Explicación: El estudiante utilizó la columna `origen` en lugar de `destino`, lo que es irrelevante para el problema.
+  - Sugerencia: Utiliza la columna correcta, `destino`, y asegúrate de que no se repitan los nombres de ciudad.
+
+**Corrección del SQL del estudiante:**
+
+SELECT DISTINCT viaje.destino 
+FROM cliente
+JOIN ticket ON ticket.refcliente = cliente.id
+JOIN viaje ON ticket.refviaje = viaje.id
+WHERE cliente.nombre = 'Juan'
+
+- Tabla resultante corregida -
+
+| destino |
+| ------- |
+| Curicó  |
+| Linares |
+| Talca   |

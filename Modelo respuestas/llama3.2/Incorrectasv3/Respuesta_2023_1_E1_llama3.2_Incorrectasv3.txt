@@ -1,0 +1,17 @@
+
+---------- Respuesta LLM: llama3.2------------------
+La respuesta del estudiante es incorrecta. 
+
+La respuesta correcta debe ser:
+
+```
+  +----------+
+  | destino  |
+  +----------+
+  | Curicó  |
+  | Linares |
+  | Talca   |
+  +----------+
+```
+
+La respuesta del estudiante incluye datos duplicados y no considera el cliente "Juan" como un cliente asociado al viaje. La consulta debe ser realizada con los clientes asociados a Juan, sin considerar otros clientes.

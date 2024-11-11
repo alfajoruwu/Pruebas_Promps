@@ -1,0 +1,21 @@
+
+---------- Respuesta LLM: llama3.2------------------
+Para resolver este problema, debemos realizar una consulta SQL que combine los datos de tres tablas: cliente, viaje y ticket. Necesitamos encontrar el número de destinos distintos a los cuales ha viajado cada cliente.
+
+Primero, definimos la respuesta esperada, que incluye el nombre del cliente y el número de destinos (distintos) a los cuales ha viajado.
+
+Luego, realizamos una consulta SQL que cumplen con las condiciones indicadas:
+
+```sql
+SELECT cliente.nombre, COUNT(DISTINCT viaje.destino)
+FROM cliente
+INNER JOIN ticket ON ticket.refcliente = cliente.id
+INNER JOIN viaje ON ticket.refviaje = viaje.id
+GROUP BY cliente.id, cliente.nombre;
+```
+
+Esta consulta utiliza la función `COUNT(DISTINCT)` para contar los números de destinos distintos para cada cliente. También utilizamos el comando `GROUP BY` para agrupar los resultados por cliente.
+
+Finalmente, obtenemos la tabla resultante con el nombre del cliente y el número de destinos (distintos) a los cuales ha viajado cada uno.
+
+Nota: La consulta original del estudiante incluye condiciones adicionales que no están presentes en el problema original. Se han omitido estas condiciones para mantener la consistencia con la respuesta esperada.

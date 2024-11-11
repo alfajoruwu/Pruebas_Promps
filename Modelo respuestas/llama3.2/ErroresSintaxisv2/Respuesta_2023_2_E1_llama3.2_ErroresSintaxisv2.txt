@@ -1,0 +1,41 @@
+
+---------- Respuesta LLM: llama3.2------------------
+**Error 1:** Palabra clave `SELEC` mal escrita.
+  - Explicación: El estudiante escribió `SELEC` en lugar de `SELECT`. Esto causa un error de sintaxis en SQL.
+  - Sugerencia: Reemplaza `SELEC` por `SELECT`.
+
+**Error 2:** Uso incorrecto del operador de igualdad.
+  - Explicación: El estudiante utilizó el operador de igualdad `==` en lugar del operador de igualdad y comprobación de tipo `=`. En SQL, se utiliza el símbolo `=`
+  - Sugerencia: Reemplaza `ticket.refcliente == cliente.id` por `ticket.refcliente = cliente.id`.
+
+**Error 3:** Falta de clausula `GROUP BY`.
+  - Explicación: La consulta del estudiante no incluye una clausula `GROUP BY`, lo que impide agrupar los datos según el nombre académico.
+  - Sugerencia: Agrega una clausula `GROUP BY` para agrupar los datos por el campo `id` de la tabla `academico`.
+
+**Error 4:** Uso incorrecto del operador `JOIN`.
+  - Explicación: El estudiante utilizó el símbolo `==` en lugar del símbolo `=`. En SQL, se utiliza el símbolo `=`
+  - Sugerencia: Reemplaza `ticket.refcliente == cliente.id` por `ticket.refcliente = cliente.id`.
+
+**Error 5:** Falta de clausula `DISTINCT`.
+  - Explicación: La consulta del estudiante no incluye una clausula `DISTINCT`, lo que impide eliminar duplicados en la respuesta.
+  - Sugerencia: Agrega una clausula `DISTINCT` para eliminar duplicados en la respuesta.
+
+**Consulta correcta:**
+
+```sql
+SELECT DISTINCT academico.nombre as nombre_academico, count(ref_estudiante) as nro_estudiantes
+FROM academico, tesis
+WHERE
+  tesis.ref_tutor = academico.id
+GROUP BY academico.id;
+```
+
+**Tabla resultante correcta:**
+
+|nombre_academico |nro_estudiantes|
+|-----------------|---------------|
+|Academico cuatro |2              |
+|Academico dos    |2              |
+|Academico tres   |2              |
+|Academico cinco  |1              |
+|Academico uno    |2              |

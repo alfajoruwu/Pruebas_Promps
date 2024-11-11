@@ -1,0 +1,42 @@
+
+---------- Respuesta LLM: llama3.1------------------
+La respuesta del estudiante es casi correcta, pero hay algunos problemas:
+
+- **Consulta SQL:** La consulta del estudiante utiliza un `INNER JOIN` en lugar de una combinación de `FROM`, `WHERE` y `GROUP BY`. Aunque el resultado es similar, la forma correcta de escribir esta consulta es utilizando los operadores de combinación.
+
+- **Condición WHERE:** En la condición `WHERE cliente.edad < 100`, no hay ninguna restricción en la tabla `ticket` o `viaje`, por lo que esta condición debe eliminarse para obtener los resultados correctos.
+
+- **Ordenar la respuesta:** La consulta del estudiante utiliza un `ORDER BY` con el nombre de cliente, pero esto es innecesario ya que estamos agrupando por el mismo campo y mostrar los resultados en ese orden.
+
+
+La respuesta esperada es:
+
+- **SQL Esperado:**
+```sql
+select c.nombre, count(distinct v.destino) 
+from viaje v
+join ticket t on v.id = t.refviaje
+join cliente c on t.refcliente = c.id
+group by c.id, c.nombre;
+```
+
+- **Resultado esperado:**
+
+
+|nombre |count|
+|-------|-----|
+|Juan   |3    |
+|Ivan   |2    |
+|Alex   |3    | 
+|Oscar  |2    |
+|Gerardo|2    |
+|William|2    |
+|Welton |3    |
+|Aldo   |3    |
+
+- Enunciado -
+Retornar una tabla con los atributos “nombre_cliente” y “nro_destinos”, la cual muestra, para cada cliente, el número de destinos (distintos) a los cuales ha viajado.
+
+- Respuesta correcta -
+
+La respuesta del estudiante es casi correcta, pero necesita ajustes en la sintaxis y la condición WHERE.

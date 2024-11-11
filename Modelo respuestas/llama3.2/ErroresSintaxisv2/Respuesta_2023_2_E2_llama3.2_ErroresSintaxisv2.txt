@@ -1,0 +1,47 @@
+
+---------- Respuesta LLM: llama3.2------------------
+**Respuesta del Asistente de Aprendizaje**
+
+**Error 1:** Palabra clave `ref` mal escrita.
+
+  - Explicación: La palabra clave `ref` está mal escrita en lugar de la convención standard `REF`.
+  - Sugerencia: Reemplaza `ref` por `REF`.
+
+**Error 2:** Falta de paréntesis en la cláusula WHERE.
+
+  - Explicación: La cláusula `WHERE` requiere paréntesis para separar las condiciones.
+  - Sugerencia: Agrega paréntesis después de `ticket.refcliente == cliente.id`.
+
+**Error 3:** Operador de igualdad incorrecto.
+
+  - Explicación: El operador de igualdad `==` es incorrecto en lugar del operador de igualdad `=`.
+  - Sugerencia: Reemplaza `==` por `=`.
+
+**Error 4:** Falta de GROUP BY.
+
+  - Explicación: La cláusula `GROUP BY` está ausente, lo que significa que la consulta no agrupará los resultados correctamente.
+  - Sugerencia: Agrega `GROUP BY cliente.id, cliente.nombre` al final del conjunto de cláusulas.
+
+**Error 5:** Dificultad para identificar el nombre de académicos revisados a mayor cantidad de tesis
+
+  - Explicación: El enunciado del ejercicio no proporcionó suficiente contexto sobre cómo determinar que académico revisó a la mayor cantidad de tesis.
+  - Sugerencia: Asegúrate de entender bien el problema y realizar pruebas adicionales para confirmar tus resultados.
+
+**Respuesta Correcta:**
+
+SELECT t3.nombre_academico
+FROM 
+( SELECT academico.id as rev_id, academico.nombre as rev_nombre, COUNT(revisor.ref_tesis) as contador 
+  FROM academico, revisor
+  WHERE revisor.ref_academico = academico.id
+  GROUP BY academico.id, academico.nombre
+) AS t3,
+( SELECT MAX(contador) AS maximo 
+  FROM 
+  ( SELECT academico.id as revisor, COUNT(revisor.ref_tesis) as contador 
+    FROM academico, revisor
+    WHERE revisor.ref_academico = academico.id
+    GROUP BY academico.id
+  ) AS t1
+) AS t2
+WHERE t3.contador = t2.maximo

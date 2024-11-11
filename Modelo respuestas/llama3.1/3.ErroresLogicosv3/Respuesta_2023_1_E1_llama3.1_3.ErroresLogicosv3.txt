@@ -1,0 +1,26 @@
+
+---------- Respuesta LLM: llama3.1 ------------------
+Respuesta generada:
+La respuesta del estudiante tiene un error. La columna a devolver es destino, no origen.
+
+- **SQL correcto:** 
+
+```sql
+SELECT DISTINCT viaje.destino 
+FROM cliente
+JOIN ticket ON ticket.refcliente = cliente.id
+JOIN viaje ON ticket.refviaje = viaje.id
+WHERE cliente.nombre = 'Juan'
+```
+
+La respuesta esperada sería:
+
+| destino |
+| ------- |
+| Curicó  |
+| Linares |
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 64.16 segundos
+Tokens enviados: 1035
+Tokens recibidos: No disponible

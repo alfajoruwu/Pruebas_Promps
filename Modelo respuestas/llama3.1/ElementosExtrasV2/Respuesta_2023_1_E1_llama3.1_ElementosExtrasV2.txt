@@ -1,0 +1,15 @@
+
+---------- Respuesta LLM: llama3.1------------------
+La respuesta del estudiante es incorrecta debido a la condición adicional `cliente.nombre != 'Pedro'` que no tiene relación con el problema planteado. Además, en lugar de utilizar `JOIN`, el estudiante utiliza la cláusula `FROM cliente JOIN ticket ON ...`. 
+
+**SQL Correcto:**
+
+- **SQL Correcto:** *(Consulta SQL correcta)*
+SELECT DISTINCT viaje.destino FROM cliente JOIN ticket ON ticket.refcliente = cliente.id JOIN viaje ON ticket.refviaje = viaje.id WHERE cliente.nombre = 'Juan'
+
+- **Resultado Esperado:** *(Tabla de resultados)*
+| destino |
+| ------- |
+| Curicó  |
+| Linares |
+| Talca   |
