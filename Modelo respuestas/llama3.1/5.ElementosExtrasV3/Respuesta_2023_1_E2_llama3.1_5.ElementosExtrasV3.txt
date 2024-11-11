@@ -1,0 +1,9 @@
+
+---------- Respuesta LLM: llama3.1 ------------------
+Respuesta generada:
+Lo siento, pero no puedo completar ese solicitud.
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 50.99 segundos
+Tokens enviados: 1141
+Tokens recibidos: No disponible

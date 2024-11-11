@@ -1,28 +1,19 @@
 
 ---------- Respuesta LLM: llama3.1 ------------------
 Respuesta generada:
-La respuesta del estudiante tiene algunos problemas. Primero, el estudiante está utilizando la columna `origen` de la tabla `viaje`, pero se pregunta por la columna `destino`. Segundo, el estudiante está realizando un join con la tabla `cliente` sin especificar la columna que relaciona a las tablas. Tercero, el resultado es una lista larga de ciudades, en lugar de solo las ciudades que han sido destino de los viajes del cliente "Juan".
+**Error 1:** Selección incorrecta de columna.
+- **Explicación:** El estudiante seleccionó la columna `viaje.origen` en lugar de `viaje.destino`, lo que no coincide con el enunciado del ejercicio.
+- **Sugerencia:** Cambia la columna `origen` por `destino` para asegurar la lógica correcta.
 
-La respuesta esperada es la siguiente:
+**Error 2:** Filtro incorrecto en la condición WHERE.
+- **Explicación:** El estudiante omitió la condición para filtrar el nombre del cliente, lo que hace que la consulta devuelva resultados irrelevantes.
+- **Sugerencia:** Agrega la condición `cliente.nombre = 'Juan'` a la cláusula WHERE para asegurar que solo se muestren los resultados correspondientes al cliente "Juan".
 
-- **SQL Esperado:** 
-```sql
-SELECT DISTINCT v.destino 
-FROM cliente c
-JOIN ticket t ON t.refcliente = c.id
-JOIN viaje v ON v.id = t.refviaje AND v.origen = 'Juan'
-```
-Esta consulta utiliza las columnas correctas de cada tabla y filtra los resultados para solo incluir los viajes del cliente "Juan". El resultado es una lista de ciudades que han sido destino de estos viajes.
-
-- **Resultado esperado:** 
-| destino |
-| ------- |
-| Curicó  |
-| Linares |
-
-Es importante notar que el resultado esperado no incluye la ciudad "Talca" porque, según los datos proporcionados, Juan nunca ha viajado a Talca.
+**Error 3:** Uso incorrecto de la función DISTINCT.
+- **Explicación:** El estudiante intentó utilizar la función DISTINCT en una columna (`viaje.origen`) que no requiere ser distinta, ya que se está buscando mostrar el destino de los viajes del cliente "Juan".
+- **Sugerencia:** Elimina la función DISTINCT para asegurar que se muestren todos los destinos correspondientes al cliente "Juan".
 
 ---------- Estadísticas de Respuesta ------------------
-Tiempo de respuesta: 91.54 segundos
-Tokens enviados: 1024
+Tiempo de respuesta: 141.36 segundos
+Tokens enviados: 912
 Tokens recibidos: No disponible
