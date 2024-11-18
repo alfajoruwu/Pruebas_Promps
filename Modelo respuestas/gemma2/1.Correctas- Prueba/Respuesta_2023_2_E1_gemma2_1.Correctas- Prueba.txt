@@ -1,0 +1,13 @@
+
+---------- Respuesta LLM: gemma2 ------------------
+Respuesta generada:
+La respuesta del estudiante es correcta. 
+
+
+El SQL del estudiante produce la misma tabla esperada, con los mismos datos que el ejemplo correcto.  
+
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 110.39 segundos
+Tokens enviados: 701
+Tokens recibidos: No disponible

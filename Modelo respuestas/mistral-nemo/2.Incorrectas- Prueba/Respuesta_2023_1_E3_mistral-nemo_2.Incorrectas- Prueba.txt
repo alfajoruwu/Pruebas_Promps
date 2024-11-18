@@ -1,0 +1,9 @@
+
+---------- Respuesta LLM: mistral-nemo ------------------
+Respuesta generada:
+La respuesta del estudiante es correcta. La tabla resultante coincide con la tabla esperada.
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 150.97 segundos
+Tokens enviados: 777
+Tokens recibidos: No disponible

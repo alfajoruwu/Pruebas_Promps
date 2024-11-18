@@ -1,0 +1,13 @@
+
+---------- Respuesta LLM: gemma2 ------------------
+Respuesta generada:
+La respuesta del estudiante es incorrecta.  Si bien su consulta intenta obtener el nombre del académico con más tesis revisadas, utiliza `ORDER BY` y `LIMIT`, que están explícitamente prohibidos en el enunciado del ejercicio. 
+
+
+La respuesta correcta utiliza subconsultas para determinar el máximo número de revisiones y luego selecciona los académicos que alcanzan ese máximo.  
+
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 43.93 segundos
+Tokens enviados: 710
+Tokens recibidos: No disponible

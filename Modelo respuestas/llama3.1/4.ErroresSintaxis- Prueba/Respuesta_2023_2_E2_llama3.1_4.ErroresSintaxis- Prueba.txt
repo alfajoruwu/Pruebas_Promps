@@ -1,0 +1,28 @@
+
+---------- Respuesta LLM: llama3.1 ------------------
+Respuesta generada:
+**Error 1:** Palabra clave `SELECT` mal escrita como `SELECT DISTINCT`.  
+- **Explicación:** El estudiante escribió `COUNT DISTINCT` en lugar de simplemente `COUNT`, lo que no es un problema por sí solo, pero hay otro error.
+El problema real está en que `DISTINCT` debe ser reemplazado por la palabra clave correcta, y además falta una coma después del nombre de columna.  
+- **Sugerencia:** Reemplaza `SELECT DISTINCT` por `SELECT`, y agrega una coma después del nombre de columna para separar las columnas seleccionadas.
+
+**Error 2:** Uso incorrecto de operador de comparación igualdad (`==`) en lugar de la palabra clave `ON`.  
+- **Explicación:** El estudiante utilizó el operador de comparación igualdad (`==`) para unir tablas, lo cual es incorrecto. En SQL, se utiliza la palabra clave `ON` para especificar la condición de unión entre tablas.
+- **Sugerencia:** Reemplaza `INNER JOIN ticket refcliente == cliente.id` por `INNER JOIN ticket ON ticket.refcliente = cliente.id`.
+
+**Error 3:** Uso incorrecto de la palabra clave `COUNT DISTINCT`.  
+- **Explicación:** El estudiante usó `COUNT DISTINCT` en lugar de simplemente `COUNT`, lo que no es correcto. En este contexto, se necesita simplemente contar el número de viajes por cliente.
+- **Sugerencia:** Reemplaza `COUNT DISTINCT viaje.destino` por `COUNT(viaje.destino)`.
+
+**Error 4:** Uso incorrecto del alias en la consulta subconsultas.  
+- **Explicación:** El estudiante creó una consulta subconsulta pero no asignó un alias adecuadamente a la misma. Es importante usar un alias para las consultas subconsultas para evitar ambigüedades.
+- **Sugerencia:** Agrega un alias apropiado a la subconsulta que agrupa los resultados por cliente, usando el estilo de `AS` (por ejemplo, `(SELECT ... ) AS clientes_grupados`). Luego, refiere al nombre del campo en lugar de usar una columna con nombre directamente.
+
+**Error 5:** Falta de alias para el campo resultado.  
+- **Explicación:** El estudiante no asignó un alias a la columna `nombre_academico` que se selecciona en la consulta final.
+- **Sugerencia:** Agrega un alias adecuado a la columna, utilizando la sintaxis de `AS`, por ejemplo, `t3.nombre_academico AS nombre_de_academico`.
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 172.04 segundos
+Tokens enviados: 778
+Tokens recibidos: No disponible

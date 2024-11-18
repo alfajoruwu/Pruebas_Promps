@@ -1,0 +1,11 @@
+
+---------- Respuesta LLM: mistral-nemo ------------------
+Respuesta generada:
+La respuesta del estudiante es correcta. La consulta SQL que ha escrito retorna una tabla con los nombres de los clientes que han comprado la mayor cantidad de tickets.
+
+El resultado esperado es una tabla con dos filas, donde cada fila contiene el nombre de un cliente que ha comprado la mayor cantidad de tickets. En este caso, los nombres de los clientes son "Alex" y "Juan". Por lo tanto, la respuesta del estudiante es correcta.
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 98.54 segundos
+Tokens enviados: 918
+Tokens recibidos: No disponible

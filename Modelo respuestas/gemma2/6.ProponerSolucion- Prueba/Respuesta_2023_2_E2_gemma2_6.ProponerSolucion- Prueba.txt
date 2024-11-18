@@ -1,0 +1,44 @@
+
+---------- Respuesta LLM: gemma2 ------------------
+Respuesta generada:
+Tu consulta tiene algunos detalles a corregir,  usaste `ORDER BY` y `LIMIT` que no se permiten en este enunciado. El objetivo es encontrar los académicos con la mayor cantidad de revisiones sin usar estos comandos.
+
+El enunciado solicita retornar una tabla con los nombres de los académicos que han revisado la mayor cantidad de tesis.  
+
+
+```sql
+SELECT t3.rev_nombre AS nombre_academico
+FROM (
+    SELECT academico.id AS rev_id, academico.nombre AS rev_nombre, COUNT(revisor.ref_tesis) AS contador
+    FROM academico, revisor
+    WHERE revisor.ref_academico = academico.id
+    GROUP BY academico.id, academico.nombre
+) AS t3, (
+    SELECT MAX(contador) AS maximo
+    FROM (
+        SELECT academico.id AS revisor, COUNT(revisor.ref_tesis) AS contador
+        FROM academico, revisor
+        WHERE revisor.ref_academico = academico.id
+        GROUP BY academico.id
+    ) AS t1
+) AS t2
+WHERE t3.contador = t2.maximo;
+
+```
+
+
+
+- tabla esperada -
+
+|nombre_academico |
+|-----------------|
+|Academico cuatro |
+|Academico cinco  | 
+
+
+
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 91.52 segundos
+Tokens enviados: 739
+Tokens recibidos: No disponible

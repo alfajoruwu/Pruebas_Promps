@@ -1,0 +1,13 @@
+
+---------- Respuesta LLM: llama3.2 ------------------
+Respuesta generada:
+La respuesta del estudiante es incorrecta. 
+
+En la consulta SQL esperada, se debe usar el agrupamiento y el filtro en el grupo para evitar que se multipliquen las filas con académicos diferentes. En cambio, el estudiante usó un INNER JOIN entre tesis y academico, lo cual genera dos filas por cada academia cuando se multiplica.
+
+También, en la tabla resultante del estudiante, el número de estudiantes para cada academia parece ser una suma de todas las veces que ha sido tutor, que no es correcto.
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 38.74 segundos
+Tokens enviados: 714
+Tokens recibidos: No disponible

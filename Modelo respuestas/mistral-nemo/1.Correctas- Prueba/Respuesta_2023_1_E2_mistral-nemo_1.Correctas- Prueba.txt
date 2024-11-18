@@ -1,0 +1,9 @@
+
+---------- Respuesta LLM: mistral-nemo ------------------
+Respuesta generada:
+La respuesta del estudiante es correcta. La tabla resultante de su consulta coincide con la tabla esperada. Ha utilizado correctamente las cláusulas JOIN y GROUP BY para obtener el número de destinos únicos por cliente.
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 40.00 segundos
+Tokens enviados: 802
+Tokens recibidos: No disponible

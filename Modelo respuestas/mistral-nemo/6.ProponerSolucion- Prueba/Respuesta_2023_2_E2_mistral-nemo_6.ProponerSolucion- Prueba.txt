@@ -1,0 +1,11 @@
+
+---------- Respuesta LLM: mistral-nemo ------------------
+Respuesta generada:
+Entendido, estaré encantado de ayudarte con tus consultas SQL. Como modelo de lenguaje AI, puedo proporcionarte ayuda y correcciones en tus consultas SQL.
+
+Para comenzar, por favor dime cuál es la consulta errada que quieres corregir. Asegúrate de incluir el contexto de la base de datos, el enunciado del ejercicio y la respuesta esperada, así como la respuesta del estudiante para poder ofrecerte una solución adecuada.
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 145.10 segundos
+Tokens enviados: 739
+Tokens recibidos: No disponible

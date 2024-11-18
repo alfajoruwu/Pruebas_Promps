@@ -1,0 +1,30 @@
+
+---------- Respuesta LLM: llama3.1 ------------------
+Respuesta generada:
+La respuesta del estudiante tiene algunos detalles a corregir.
+
+Respuesta del estudiante:
+ 
+Tu respuesta selecciona los nombres de las ciudades que han sido el origen de los viajes del cliente “Juan”. No repetir los nombres de ciudad. Sin embargo, el enunciado solicita retornar una tabla con los nombres de las ciudades que han sido el destino de los viajes del cliente “Juan”, no el origen.
+
+Esto debido a que el enunciado establece claramente que la columna a seleccionar es `viaje.destino` y no `viaje.origen`.
+
+Además, es necesario agregar un condicional para no repetir los nombres de ciudad. Esto se puede lograr usando la función SQL `DISTINCT`.
+
+Aquí te muestro el código corregido:
+
+```sql
+SELECT DISTINCT viaje.destino 
+FROM cliente, viaje, ticket
+WHERE 
+ticket.refviaje = viaje.id AND
+ticket.refcliente = cliente.id AND
+cliente.nombre = 'Juan'
+```
+
+Eso debería devolver una tabla con los nombres de las ciudades que han sido el destino de los viajes del cliente “Juan”, sin repetir los nombres de ciudad.
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 140.15 segundos
+Tokens enviados: 783
+Tokens recibidos: No disponible

@@ -1,0 +1,26 @@
+
+---------- Respuesta LLM: gemma2 ------------------
+Respuesta generada:
+## Respuesta del Tutor
+
+Tu consulta tiene detalles a corregir. La instrucción `SELECT` selecciona solo la columna `origen` del viaje, mientras que el enunciado pide los destinos.  Además, no se especifica ninguna condición para filtrar por el cliente "Juan".
+
+
+Esto debido a que el enunciado solicita obtener las ciudades destino de los viajes realizados por el cliente "Juan", lo cual requiere seleccionar la columna "destino" de la tabla "viaje" y aplicar una condición para filtrar los registros por ese cliente.
+
+```sql
+SELECT DISTINCT viaje.destino 
+FROM cliente
+JOIN ticket ON ticket.refcliente = cliente.id
+JOIN viaje ON ticket.refviaje = viaje.id
+WHERE cliente.nombre = 'Juan';
+```
+
+
+
+
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 162.61 segundos
+Tokens enviados: 783
+Tokens recibidos: No disponible

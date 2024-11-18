@@ -1,0 +1,13 @@
+
+---------- Respuesta LLM: gemma2 ------------------
+Respuesta generada:
+El estudiante no ha proporcionado una consulta SQL que cumpla con los requisitos del enunciado.  La consulta proporcionada se relaciona con clientes, tickets y viajes, lo cual es irrelevante al problema planteado.
+
+
+No se puede evaluar la respuesta del estudiante ya que no ha proporcionado una consulta SQL acorde al enunciado.   
+
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 121.15 segundos
+Tokens enviados: 750
+Tokens recibidos: No disponible

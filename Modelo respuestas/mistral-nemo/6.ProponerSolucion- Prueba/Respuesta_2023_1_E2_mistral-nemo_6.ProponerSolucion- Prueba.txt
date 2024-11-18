@@ -1,0 +1,33 @@
+
+---------- Respuesta LLM: mistral-nemo ------------------
+Respuesta generada:
+La respuesta del estudiante es correcta pero no está en el formato pedido, a continuación se presenta la corrección:
+
+-Tu respuesta es correcta, pero no cumple con el formato solicitado.
+
+El enunciado solicita una tabla con los atributos "nombre\_cliente" y "nro\_destinos", que muestra para cada cliente el número de destinos (distintos) a los cuales ha viajado. La respuesta estudiante está bien, solo que falta agregar la clausula group by para cumplir con lo solicitado.
+
+```
+select cliente.nombre as nombre_cliente, count(distinct viaje.destino) as nro_destinos
+from cliente inner join ticket on ticket.refcliente = cliente.id
+inner join viaje on ticket.refviaje = viaje.id
+group by cliente.id, cliente.nombre;
+```
+
+La tabla esperada es:
+
+|nombre\_cliente |nro\_destinos |
+|----------------|--------------|
+|Juan            |3             |
+|Ivan            |2             |
+|Alex            |3             |
+|Oscar           |2             |
+|Gerardo         |2             |
+|William         |2             |
+|Welton          |3             |
+|Aldo            |3             |
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 85.99 segundos
+Tokens enviados: 795
+Tokens recibidos: No disponible

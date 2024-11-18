@@ -1,0 +1,25 @@
+
+---------- Respuesta LLM: gemma2 ------------------
+Respuesta generada:
+Tu consulta tiene algunos detalles a corregir, en especial en la cláusula `GROUP BY`. 
+
+El enunciado solicita agrupar por "nombre_academico", lo que se logra con  `GROUP BY academico.id`  y no por "nombre" y "ref_estudiante". Además, el nombre de las columnas debe ser definido en la sentencia SELECT como `nombre_academico` y `nro_estudiantes`.
+
+Esto debido a que necesitas agrupar los resultados por cada académico para contar el número de estudiantes con los que ha sido tutor.
+
+
+```sql
+SELECT academico.nombre AS nombre_academico, COUNT(tesis.ref_estudiante) AS nro_estudiantes
+FROM academico
+INNER JOIN tesis ON tesis.ref_tutor = academico.id
+GROUP BY academico.id;
+``` 
+
+
+
+
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 137.57 segundos
+Tokens enviados: 709
+Tokens recibidos: No disponible

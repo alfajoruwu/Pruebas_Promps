@@ -1,0 +1,14 @@
+
+---------- Respuesta LLM: gemma2 ------------------
+Respuesta generada:
+La respuesta del estudiante es incorrecta. 
+
+Aunque la consulta SQL casi funciona, el error está en que no utiliza `DISTINCT` al contar los destinos en cada agrupación. Esto hace que cuente todas las ocurrencias de un destino para cada cliente, incluso las repetidas,  en vez de sólo contar destinos únicos.
+
+
+
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 41.78 segundos
+Tokens enviados: 788
+Tokens recibidos: No disponible

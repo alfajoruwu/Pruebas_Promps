@@ -1,0 +1,11 @@
+
+---------- Respuesta LLM: llama3.1 ------------------
+Respuesta generada:
+La respuesta del estudiante es correcta. 
+
+La consulta del estudiante utiliza una subconsulta para obtener el máximo número de revisiones y luego utiliza la cláusula HAVING para filtrar los resultados solo con aquellos académicos que han revisado esa cantidad máxima. El resultado es idéntico al esperado, lo que indica que la respuesta del estudiante es correcta.
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 35.36 segundos
+Tokens enviados: 737
+Tokens recibidos: No disponible

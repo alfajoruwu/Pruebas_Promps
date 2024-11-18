@@ -1,0 +1,13 @@
+
+---------- Respuesta LLM: gemma2 ------------------
+Respuesta generada:
+La respuesta del estudiante es correcta. 
+
+
+Su consulta SQL es válida y produce la misma tabla que la respuesta esperada, listando las ciudades destino de los viajes realizados por el cliente "Juan". 
+
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 140.42 segundos
+Tokens enviados: 769
+Tokens recibidos: No disponible

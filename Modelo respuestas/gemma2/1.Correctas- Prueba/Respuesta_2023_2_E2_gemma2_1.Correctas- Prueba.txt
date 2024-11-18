@@ -1,0 +1,13 @@
+
+---------- Respuesta LLM: gemma2 ------------------
+Respuesta generada:
+La respuesta del estudiante es correcta. 
+
+
+El código del estudiante implementa una solución válida que utiliza subconsultas y cláusulas GROUP BY para lograr el objetivo del ejercicio, devolviendo los nombres de los académicos que han revisado la mayor cantidad de tesis.  Aunque la sintaxis es un poco diferente a la respuesta esperada, ambos códigos alcanzan el mismo resultado. 
+
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 51.00 segundos
+Tokens enviados: 737
+Tokens recibidos: No disponible

@@ -1,0 +1,41 @@
+
+---------- Respuesta LLM: mistral-nemo ------------------
+Respuesta generada:
+Entendido, como un asistente de aprendizaje en SQL, evaluaré la respuesta del estudiante siguiendo el formato de salida estricto que me has proporcionado.
+
+Vamos a revisar la respuesta del estudiante en relación con el contexto y los requisitos del ejercicio proporcionados:
+
+**Contexto de base de datos:**
+- Tablas -
+
+create table academico(id integer primary key, nombre text, area text);
+
+create table estudiante(id integer primary key, nombre text, anio_ingreso integer);
+
+create table tesis(id integer primary key, titulo text, ref_estudiante integer references estudiante(id), ref_tutor integer references academico(id), fecha date);
+
+create table revisor(ref_tesis integer references tesis(id), ref_academico integer references academico(id));
+
+- Datos -
+
+insert into academico values (1,'Academico uno','Area X');
+insert into academico values (2,'Academico dos','Area X');
+insert into academico values (3,'Academico tres','Area X');
+insert into academico values (4,'Academico cuatro','Area X');
+insert into academico values (5,'Academico cinco','Area X');
+insert into academico values (6,'Academico seis','Area X');
+insert into academico values (7,'Academico siete','Area X');
+insert into academico values (8,'Academico ocho','Area X');
+insert into academico values (9,'Academico nueve','Area X');
+
+insert into estudiante values (1,'Estudiante uno',2019);
+insert into estudiante values (2,'Estudiante dos',2019);
+insert into estudiante values (3,'Estudiante tres',2019);
+insert into estudiante values (4,'Estudiante cuatro',2019);
+insert into estudiante values (5,'Estudiante cinco',2019);
+insert
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 217.15 segundos
+Tokens enviados: 750
+Tokens recibidos: No disponible

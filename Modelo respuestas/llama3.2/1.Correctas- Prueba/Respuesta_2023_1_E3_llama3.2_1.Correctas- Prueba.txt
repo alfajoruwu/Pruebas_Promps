@@ -1,0 +1,9 @@
+
+---------- Respuesta LLM: llama3.2 ------------------
+Respuesta generada:
+La respuesta del estudiante es correcta. Ambas tablas de resultados coinciden, lo que indica que el estudiante ha comprendido correctamente el problema y ha implementado la consulta SQL adecuada para resolverlo.
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 13.48 segundos
+Tokens enviados: 798
+Tokens recibidos: No disponible

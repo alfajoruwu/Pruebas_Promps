@@ -1,0 +1,9 @@
+
+---------- Respuesta LLM: llama3.2 ------------------
+Respuesta generada:
+La respuesta del estudiante es correcta.
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 43.71 segundos
+Tokens enviados: 769
+Tokens recibidos: No disponible

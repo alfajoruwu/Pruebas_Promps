@@ -1,0 +1,54 @@
+
+---------- Respuesta LLM: llama3.2 ------------------
+Respuesta generada:
+Para evaluar la respuesta del estudiante, vamos a compararla con la respuesta esperada.
+
+La respuesta esperada es:
+
+```sql
+SELECT t3.rev_nombre AS nombre_academico
+FROM 
+( SELECT academico.id AS rev_id, academico.nombre AS rev_nombre, COUNT(revisor.ref_tesis) AS contador
+  FROM academico, revisor
+  WHERE revisor.ref_academico = academico.id
+  GROUP BY academico.id, academico.nombre
+) AS t3,
+( SELECT MAX(contador) AS maximo
+  FROM 
+  ( SELECT academico.id AS revisor, COUNT(revisor.ref_tesis) AS contador
+    FROM academico, revisor
+    WHERE revisor.ref_academico = academico.id
+    GROUP BY academico.id
+  ) AS t1
+) AS t2
+WHERE t3.contador = t2.maximo
+```
+
+La respuesta del estudiante es:
+
+```sql
+SELECT academico.nombre AS rev_nombre
+FROM academico
+JOIN revisor ON revisor.ref_academico = academico.id
+GROUP BY academico.id, academico.nombre
+ORDER BY COUNT(revisor.ref_tesis) DESC
+LIMIT 1;
+```
+
+La respuesta del estudiante no es la misma que la respuesta esperada. La respuesta esperada utiliza subconsultas y grupos para obtener los nombres de los académicos con la mayor cantidad de tesis revisadas, mientras que la respuesta del estudiante utiliza `JOIN`, `GROUP BY` y `ORDER BY` en lugar de subconsultas.
+
+La respuesta correcta es:
+
+```
+|nombre_academico     |
+|---------------------|
+|Academico cuatro    |
+|Academico cinco     |
+```
+
+No se permite el uso de `ORDER BY`, `OFFSET` o `LIMIT` en la respuesta esperada.
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 39.42 segundos
+Tokens enviados: 710
+Tokens recibidos: No disponible

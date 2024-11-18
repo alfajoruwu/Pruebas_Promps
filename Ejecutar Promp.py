@@ -84,6 +84,8 @@ PrompIdentificarErroresLogicos = cargar_texto('Promp/IdentificaErroresLogicos.tx
 PrompIdentificaErroresSintaxis = cargar_texto('Promp/IdentificaErroresSintaxis.txt')
 PrompElementosExtras = cargar_texto('Promp/IdentifcaElementosExtras.txt')
 PrompProponersolucion = cargar_texto('Promp/ProponerSolucion.txt')
+PrompCreaRespuesta = cargar_texto('Promp/RespuestaCreada.txt')
+PrompExplicarEjercicio = cargar_texto('Promp/ExplicarEjercicio.txt')
 
 PrompRespuesta = ""
 # -- - - -- - --  PROMPS y casos a resolver - - -- - ---  -- 
@@ -159,121 +161,129 @@ Tokens recibidos: {tokens_recibidos}
 
 # Ejecuciones ---------------------------------------------------------
 
-Carpeta = "1.Correctasv4"
+modelos_llm = ["mistral-nemo", "llama3.2", "llama3.1", "gemma2"]
+NombreC = "- Prueba"
+modelo = "qwen2.5-coder:3b"
+Carpeta = "1.Correctas" +NombreC
 
-# # Base de datos 1 Correcto
+# for modelo in modelos_llm:
+#     # Base de datos 1 Correcto
+#     enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, RespuestaCorrecta_ejercicio_1_2023_1,"2023_1_E1", modelo, PrompCorrectaIncorrecta, Carpeta)
+#     enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, RespuestaCorrecta_ejercicio_2_2023_1,"2023_1_E2", modelo, PrompCorrectaIncorrecta, Carpeta)
+#     enviar_prompt(Contexto2023_1, Ejercicio3_2023_1, RespuestaCorrecta_ejercicio_3_2023_1,"2023_1_E3", modelo, PrompCorrectaIncorrecta, Carpeta)
 
-# enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, RespuestaCorrecta_ejercicio_1_2023_1,"2023_1_E1", "llama3.1", PrompCorrectaIncorrecta, Carpeta)
-# enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, RespuestaCorrecta_ejercicio_2_2023_1,"2023_1_E2", "llama3.1", PrompCorrectaIncorrecta, Carpeta)
-# enviar_prompt(Contexto2023_1, Ejercicio3_2023_1, RespuestaCorrecta_ejercicio_3_2023_1,"2023_1_E3", "llama3.1", PrompCorrectaIncorrecta, Carpeta)
+#     # Base de datos 2 Correcto
 
-# # Base de datos 2 Correcto
-
-# enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, RespuestaCorrecta_ejercicio_1_2023_2,"2023_2_E1", "llama3.1", PrompCorrectaIncorrecta, Carpeta)
-# enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, RespuestaCorrecta_ejercicio_2_2023_2,"2023_2_E2", "llama3.1", PrompCorrectaIncorrecta, Carpeta)
+#     enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, RespuestaCorrecta_ejercicio_1_2023_2,"2023_2_E1", modelo, PrompCorrectaIncorrecta, Carpeta)
+#     enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, RespuestaCorrecta_ejercicio_2_2023_2,"2023_2_E2", modelo, PrompCorrectaIncorrecta, Carpeta)
 
 # # # ----------------------------------------------------------------
 
-# Carpeta2 = "2.Incorrectasv4"
+# Carpeta2 = "2.Incorrectas" +NombreC
 
-# # Base de datos 1 incorrecto
-# enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, RespuestaIncorrecta_ejercicio_1_2023_1,"2023_1_E1", "llama3.1", PrompCorrectaIncorrecta, Carpeta2)
-# enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, RespuestaIncorrecta_ejercicio_2_2023_1,"2023_1_E2", "llama3.1", PrompCorrectaIncorrecta, Carpeta2)
-# enviar_prompt(Contexto2023_1, Ejercicio3_2023_1, RespuestaIncorrecta_ejercicio_3_2023_1,"2023_1_E3", "llama3.1", PrompCorrectaIncorrecta, Carpeta2)
+# for modelo in modelos_llm:
+#     # Base de datos 1 incorrecto
+#     enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, RespuestaIncorrecta_ejercicio_1_2023_1,"2023_1_E1", modelo, PrompCorrectaIncorrecta, Carpeta2)
+#     enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, RespuestaIncorrecta_ejercicio_2_2023_1,"2023_1_E2", modelo, PrompCorrectaIncorrecta, Carpeta2)
+#     enviar_prompt(Contexto2023_1, Ejercicio3_2023_1, RespuestaIncorrecta_ejercicio_3_2023_1,"2023_1_E3", modelo, PrompCorrectaIncorrecta, Carpeta2)
 
-# # Base de datos 2 incorrecto
-# enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, RespuestaIncorrecta_ejercicio_1_2023_2,"2023_2_E1", "llama3.1", PrompCorrectaIncorrecta, Carpeta2)
-# enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, RespuestaIncorrecta_ejercicio_2_2023_2,"2023_2_E2", "llama3.1", PrompCorrectaIncorrecta, Carpeta2)
+#     # Base de datos 2 incorrecto
+#     enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, RespuestaIncorrecta_ejercicio_1_2023_2,"2023_2_E1", modelo, PrompCorrectaIncorrecta, Carpeta2)
+#     enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, RespuestaIncorrecta_ejercicio_2_2023_2,"2023_2_E2", modelo, PrompCorrectaIncorrecta, Carpeta2)
 
-# # -------------------------------------------------------------------
+# # # -------------------------------------------------------------------
 
-Carpeta3 = "3.ErroresLogicosv5"
+Carpeta3 = "3.ErroresLogicos" +NombreC
 
-# # Base de datos 1 Errores logicos
-# enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, RespuestaErrorLogico_ejercicio_1_2023_1,"2023_1_E1", "llama3.1", PrompIdentificarErroresLogicos, Carpeta3)
-# enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, RespuestaErrorLogico_ejercicio_2_2023_1,"2023_1_E2", "llama3.1", PrompIdentificarErroresLogicos, Carpeta3)
-# enviar_prompt(Contexto2023_1, Ejercicio3_2023_1, RespuestaErrorLogico_ejercicio_3_2023_1,"2023_1_E3", "llama3.1", PrompIdentificarErroresLogicos, Carpeta3)
-
-
-# # Base de datos 2 Errores logicos
-# enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, RespuestaErrorLogico_ejercicio_1_2023_2,"2023_2_E1", "llama3.1", PrompIdentificarErroresLogicos, Carpeta3)
-# enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, RespuestaErrorLogico_ejercicio_2_2023_2,"2023_2_E2", "llama3.1", PrompIdentificarErroresLogicos, Carpeta3)
+#for modelo in modelos_llm:
+    # Base de datos 1 Errores logicos
+enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, RespuestaErrorLogico_ejercicio_1_2023_1,"2023_1_E1", modelo, PrompIdentificarErroresLogicos, Carpeta3)
+enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, RespuestaErrorLogico_ejercicio_2_2023_1,"2023_1_E2", modelo, PrompIdentificarErroresLogicos, Carpeta3)
+enviar_prompt(Contexto2023_1, Ejercicio3_2023_1, RespuestaErrorLogico_ejercicio_3_2023_1,"2023_1_E3", modelo, PrompIdentificarErroresLogicos, Carpeta3)
 
 
-# # ---------------------------------------------------------------------
-
-Carpeta4 = "4.ErroresSintaxisv3"
-
-# # Base de datos 1 Errores Sintaxis
-# enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, RespuestaErrorSintaxis_ejercicio_1_2023_1,"2023_1_E1", "llama3.1", PrompIdentificaErroresSintaxis, Carpeta4)
-# enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, RespuestaErrorSintaxis_ejercicio_2_2023_1,"2023_1_E2", "llama3.1", PrompIdentificaErroresSintaxis, Carpeta4)
-# enviar_prompt(Contexto2023_1, Ejercicio3_2023_1, RespuestaErrorSintaxis_ejercicio_3_2023_1,"2023_1_E3", "llama3.1", PrompIdentificaErroresSintaxis, Carpeta4)
-
-
-# # Base de datos 2 Errores Sintaxis
-# enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, RespuestaErrorSintaxis_ejercicio_1_2023_1,"2023_2_E1", "llama3.1", PrompIdentificaErroresSintaxis, Carpeta4)
-# enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, RespuestaErrorSintaxis_ejercicio_2_2023_1,"2023_2_E2", "llama3.1", PrompIdentificaErroresSintaxis, Carpeta4)
-
-
-# ---------------------------------------------------------------------
-
-# Carpeta5 = "5.ElementosExtrasV5"
-
-# # Base de datos 1 Identificar elementos adicionales
-# enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, RespuestaElementosExtras_ejercicio_1_2023_1,"2023_1_E1", "llama3.1", PrompElementosExtras, Carpeta5)
-# enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, RespuestaElementosExtras_ejercicio_2_2023_1,"2023_1_E2", "llama3.1", PrompElementosExtras, Carpeta5)
-# enviar_prompt(Contexto2023_1, Ejercicio3_2023_1, RespuestaElementosExtras_ejercicio_3_2023_1,"2023_1_E3", "llama3.1", PrompElementosExtras, Carpeta5)
-
-
-# # Base de datos 2 Identificar elementos adicionales
-# enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, RespuestaElementosExtras_ejercicio_1_2023_2,"2023_2_E1", "llama3.1", PrompElementosExtras, Carpeta5)
-# enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, RespuestaElementosExtras_ejercicio_2_2023_2,"2023_2_E2", "llama3.1", PrompElementosExtras, Carpeta5)
-
-
-# ---------------------------------------------------------------------
-
-# Carpeta6 = "6.ProponerSolucionV1"
-
-# # Base de datos 1 Proponer solucion con respuesta de estudiante
-# enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, RespuestaPropuesta_ejercicio_1_2023_1,"2023_1_E1", "llama3.1", PrompProponersolucion, Carpeta6)
-# enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, RespuestaPropuesta_ejercicio_2_2023_1,"2023_1_E2", "llama3.1", PrompProponersolucion, Carpeta6)
-# enviar_prompt(Contexto2023_1, Ejercicio3_2023_1, RespuestaPropuesta_ejercicio_3_2023_1,"2023_1_E3", "llama3.1", PrompProponersolucion, Carpeta6)
-
-
-
-# # Base de datos 2 Proponer solucion con respuesta de estudiante
-# enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, RespuestaPropuesta_ejercicio_1_2023_2,"2023_2_E1", "llama3.1", PrompProponersolucion, Carpeta6)
-# enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, RespuestaPropuesta_ejercicio_2_2023_2,"2023_2_E2", "llama3.1", PrompProponersolucion, Carpeta6)
-
-
-# ---------------------------------------------------------------------
-
-Carpeta7 = "7.RespuestaCreadaV1"
-
-# # Base de datos 1 Crear Respuesta
-# enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, Nada,"2023_1_E1", "llama3.2", PrompRespuesta, Carpeta7)
-# enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, Nada,"2023_1_E2", "llama3.2", PrompRespuesta, Carpeta7)
-# enviar_prompt(Contexto2023_1, Ejercicio3_2023_1, Nada,"2023_1_E3", "llama3.2", PrompRespuesta, Carpeta7)
-
-
-
-# # Base de datos 2 Crear Respuesta
-# enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, Nada,"2023_2_E1", "llama3.2", PrompRespuesta, Carpeta7)
-# enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, Nada,"2023_2_E2", "llama3.2", PrompRespuesta, Carpeta7)
+# Base de datos 2 Errores logicos
+enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, RespuestaErrorLogico_ejercicio_1_2023_2,"2023_2_E1", modelo, PrompIdentificarErroresLogicos, Carpeta3)
+enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, RespuestaErrorLogico_ejercicio_2_2023_2,"2023_2_E2", modelo, PrompIdentificarErroresLogicos, Carpeta3)
 
 
 # # ---------------------------------------------------------------------
 
-Carpeta8 = "8.ExplicarEjerciciosV1"
+# Carpeta4 = "4.ErroresSintaxis" +NombreC
 
-# # Base de datos 1 Explicar ejercicio
-# enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, Nada,"2023_2_E1", "llama3.2", PrompRespuesta, Carpeta7)
-# enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, Nada,"2023_2_E2", "llama3.2", PrompRespuesta, Carpeta7)
-# enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, Nada,"2023_2_E1", "llama3.2", PrompRespuesta, Carpeta7)
+# for modelo in modelos_llm:
+#     # Base de datos 1 Errores Sintaxis
+#     enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, RespuestaErrorSintaxis_ejercicio_1_2023_1,"2023_1_E1", modelo, PrompIdentificaErroresSintaxis, Carpeta4)
+#     enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, RespuestaErrorSintaxis_ejercicio_2_2023_1,"2023_1_E2", modelo, PrompIdentificaErroresSintaxis, Carpeta4)
+#     enviar_prompt(Contexto2023_1, Ejercicio3_2023_1, RespuestaErrorSintaxis_ejercicio_3_2023_1,"2023_1_E3", modelo, PrompIdentificaErroresSintaxis, Carpeta4)
+
+
+#     # Base de datos 2 Errores Sintaxis
+#     enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, RespuestaErrorSintaxis_ejercicio_1_2023_1,"2023_2_E1", modelo, PrompIdentificaErroresSintaxis, Carpeta4)
+#     enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, RespuestaErrorSintaxis_ejercicio_2_2023_1,"2023_2_E2", modelo, PrompIdentificaErroresSintaxis, Carpeta4)
+
+
+# # ---------------------------------------------------------------------
+
+# Carpeta5 = "5.ElementosExtras" +NombreC
+
+# for modelo in modelos_llm:
+#     # Base de datos 1 Identificar elementos adicionales
+#     enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, RespuestaElementosExtras_ejercicio_1_2023_1,"2023_1_E1", modelo, PrompElementosExtras, Carpeta5)
+#     enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, RespuestaElementosExtras_ejercicio_2_2023_1,"2023_1_E2", modelo, PrompElementosExtras, Carpeta5)
+#     enviar_prompt(Contexto2023_1, Ejercicio3_2023_1, RespuestaElementosExtras_ejercicio_3_2023_1,"2023_1_E3", modelo, PrompElementosExtras, Carpeta5)
+
+
+#     # Base de datos 2 Identificar elementos adicionales
+#     enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, RespuestaElementosExtras_ejercicio_1_2023_2,"2023_2_E1", modelo, PrompElementosExtras, Carpeta5)
+#     enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, RespuestaElementosExtras_ejercicio_2_2023_2,"2023_2_E2", modelo, PrompElementosExtras, Carpeta5)
+
+
+# # ---------------------------------------------------------------------
+
+# Carpeta6 = "6.ProponerSolucion" +NombreC
+
+# for modelo in modelos_llm:
+#     # Base de datos 1 Proponer solucion con respuesta de estudiante
+#     enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, RespuestaPropuesta_ejercicio_1_2023_1,"2023_1_E1", modelo, PrompProponersolucion, Carpeta6)
+#     enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, RespuestaPropuesta_ejercicio_2_2023_1,"2023_1_E2", modelo, PrompProponersolucion, Carpeta6)
+#     enviar_prompt(Contexto2023_1, Ejercicio3_2023_1, RespuestaPropuesta_ejercicio_3_2023_1,"2023_1_E3", modelo, PrompProponersolucion, Carpeta6)
 
 
 
-# # Base de datos 2 Explicar ejercicio
-# enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, Nada,"2023_2_E1", "llama3.2", PrompRespuesta, Carpeta7)
-# enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, Nada,"2023_2_E2", "llama3.2", PrompRespuesta, Carpeta7)
+#     # Base de datos 2 Proponer solucion con respuesta de estudiante
+#     enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, RespuestaPropuesta_ejercicio_1_2023_2,"2023_2_E1", modelo, PrompProponersolucion, Carpeta6)
+#     enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, RespuestaPropuesta_ejercicio_2_2023_2,"2023_2_E2", modelo, PrompProponersolucion, Carpeta6)
+
+
+# # ---------------------------------------------------------------------
+
+# Carpeta7 = "7.RespuestaCreadaV1"
+
+# # # Base de datos 1 Crear Respuesta
+# # enviar_prompt(Contexto2023_1, Ejercicio1_2023_1, Nada,"2023_1_E1", "llama3.2", PrompRespuesta, Carpeta7)
+# # enviar_prompt(Contexto2023_1, Ejercicio2_2023_1, Nada,"2023_1_E2", "llama3.2", PrompRespuesta, Carpeta7)
+# # enviar_prompt(Contexto2023_1, Ejercicio3_2023_1, Nada,"2023_1_E3", "llama3.2", PrompRespuesta, Carpeta7)
+
+
+
+# # # Base de datos 2 Crear Respuesta
+# # enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, Nada,"2023_2_E1", "llama3.2", PrompRespuesta, Carpeta7)
+# # enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, Nada,"2023_2_E2", "llama3.2", PrompRespuesta, Carpeta7)
+
+
+# # # ---------------------------------------------------------------------
+
+# Carpeta8 = "8.ExplicarEjerciciosV1"
+
+# # # Base de datos 1 Explicar ejercicio
+# # enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, Nada,"2023_2_E1", "llama3.2", PrompRespuesta, Carpeta7)
+# # enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, Nada,"2023_2_E2", "llama3.2", PrompRespuesta, Carpeta7)
+# # enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, Nada,"2023_2_E1", "llama3.2", PrompRespuesta, Carpeta7)
+
+
+
+# # # Base de datos 2 Explicar ejercicio
+# # enviar_prompt(Contexto2023_2, Ejercicio1_2023_2, Nada,"2023_2_E1", "llama3.2", PrompRespuesta, Carpeta7)
+# # enviar_prompt(Contexto2023_2, Ejercicio2_2023_2, Nada,"2023_2_E2", "llama3.2", PrompRespuesta, Carpeta7)
 

@@ -1,0 +1,13 @@
+
+---------- Respuesta LLM: gemma2 ------------------
+Respuesta generada:
+La respuesta del estudiante es correcta. 
+
+
+El código SQL del estudiante produce el mismo resultado que el esperado. Ambos seleccionan los nombres de los clientes y cuentan el número de destinos distintos a los que han viajado, agrupando por cliente.  
+
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 40.97 segundos
+Tokens enviados: 802
+Tokens recibidos: No disponible

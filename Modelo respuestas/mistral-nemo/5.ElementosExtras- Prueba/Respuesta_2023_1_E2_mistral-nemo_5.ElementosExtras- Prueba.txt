@@ -1,0 +1,57 @@
+
+---------- Respuesta LLM: mistral-nemo ------------------
+Respuesta generada:
+Enunciado del ejercicio:
+El enunciado del ejercicio es retornar una tabla con los atributos "nombre_cliente" y "nro_destinos", la cual muestra, para cada cliente, el número de destinos (distintos) a los cuales ha viajado.
+
+Respuesta esperada:
+
+SQL Esperado:
+SELECT cliente.nombre, COUNT(DISTINCT viaje.destino)
+FROM cliente
+INNER JOIN ticket ON ticket.refcliente = cliente.id
+INNER JOIN viaje ON ticket.refviaje = viaje.id
+WHERE cliente.edad < 100
+GROUP BY cliente.id, cliente.nombre
+ORDER BY cliente.nombre;
+
+Resultado esperado:
+|nombre |count|
+|-------|-----|
+|Aldo   |3    |
+|Alex   |3    |
+|Gerardo|2    |
+|Ivan   |2    |
+|Juan   |3    |
+|Oscar  |2    |
+|Welton |3    |
+|William|2    |
+
+Respuesta del estudiante:
+SQL del estudiante:
+SELECT cliente.nombre, COUNT(DISTINCT viaje.destino)
+FROM cliente
+INNER JOIN ticket ON ticket.refcliente = cliente.id
+INNER JOIN viaje ON ticket.refviaje = viaje.id
+WHERE cliente.edad < 100
+GROUP BY cliente.id, cliente.nombre
+ORDER BY cliente.nombre;
+
+Resultado del estudiante:
+|nombre |count|
+|-------|-----|
+|Aldo   |3    |
+|Alex   |3    |
+|Gerardo|2    |
+|Ivan   |2    |
+|Juan   |3    |
+|Oscar  |2    |
+|Welton |3    |
+|William|2    |
+
+La respuesta del estudiante es correcta, ya que utiliza una consulta SQL similar a la esperada y obtiene el mismo resultado esperado. Sin embargo, se podría mejorar la consulta agregando una condición en el WHERE para filtrar solo los clientes con edad menor a 100 años, como se menciona en el enunciado del ejercicio.
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 175.68 segundos
+Tokens enviados: 913
+Tokens recibidos: No disponible

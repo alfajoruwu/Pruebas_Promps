@@ -1,0 +1,14 @@
+
+---------- Respuesta LLM: gemma2 ------------------
+Respuesta generada:
+La respuesta del estudiante es incorrecta. 
+
+Aunque la consulta del estudiante cuenta los tickets por cliente, no identifica a los clientes que han comprado la mayor cantidad de tickets. La consulta solo devuelve el cliente con más tickets, no a todos aquellos que comparten la máxima cantidad.
+
+
+
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 34.92 segundos
+Tokens enviados: 777
+Tokens recibidos: No disponible

@@ -1,0 +1,9 @@
+
+---------- Respuesta LLM: mistral-nemo ------------------
+Respuesta generada:
+Lo siento, pero no tengo acceso a la información proporcionada para evaluar la respuesta del estudiante. Por favor, proporcione más detalles o la información completa para que pueda ayudarlo adecuadamente.
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 160.38 segundos
+Tokens enviados: 838
+Tokens recibidos: No disponible

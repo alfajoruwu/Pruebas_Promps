@@ -1,0 +1,9 @@
+
+---------- Respuesta LLM: mistral-nemo ------------------
+Respuesta generada:
+La respuesta del estudiante es incorrecta. La tabla resultante del estudiante tiene más filas de las esperadas y no cumple con el requisito de diferenciar a los académicos con el mismo nombre. Además, la consulta del estudiante cuenta el número de veces que cada tesis ha sido tutoreada por un académico en lugar de contar el número total de estudiantes tutoreados por cada académico.
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 189.54 segundos
+Tokens enviados: 714
+Tokens recibidos: No disponible

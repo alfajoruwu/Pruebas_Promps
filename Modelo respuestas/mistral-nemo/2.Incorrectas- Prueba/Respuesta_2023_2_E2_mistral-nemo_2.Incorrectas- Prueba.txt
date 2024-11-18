@@ -1,0 +1,9 @@
+
+---------- Respuesta LLM: mistral-nemo ------------------
+Respuesta generada:
+La respuesta del estudiante es incorrecta. La consulta del estudiante utiliza `order by` y `limit`, lo que no cumple con las restricciones del ejercicio. Además, la tabla resultante solo contiene un nombre de académico, mientras que la respuesta esperada debería contener dos nombres (Academico cuatro y Academico cinco).
+
+---------- Estadísticas de Respuesta ------------------
+Tiempo de respuesta: 42.69 segundos
+Tokens enviados: 710
+Tokens recibidos: No disponible
