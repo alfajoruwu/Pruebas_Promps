@@ -67,7 +67,7 @@ def enviar_prompt(contexto, enunciado, respuesta, nombre_respuesta, modelo, prom
         "stream": False
     }
     
-    # Iniciar el temporizador para medir el tiempo de respuesta
+    # Iniciar el temporizador para medir el tiempo de remistralai/mistral-small-3.1-24b-instruct:freespuesta
     start_time = time.time()
     print(f"Ejecutando prompt en {modelo}...")
 
